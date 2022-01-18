@@ -17,7 +17,7 @@ from datetime import datetime
 
 
 # store website in a variable
-app_site='my-vodafone-romania/id468772675'
+#app_site='my-vodafone-romania/id468772675'
 
 def IOS_APP(site):
 
@@ -36,7 +36,7 @@ def IOS_APP(site):
     #print(soup) #arata siteul
     
     #extrage ratingul general si #ratings total
-    r = soup.find(class_ = 'we-rating-count star-rating__count').get_text()
+    r = soup.find(class_ ='we-rating-count star-rating__count').get_text()
     r=r.split()
     ratings=[r[0],r[2]]
     ratings
@@ -101,20 +101,22 @@ def IOS_APP(site):
 
 
 
-lista_site=pd.read_csv("C:/Users/antfiera/Desktop/app-store/in-ios.csv")
+lista_site=pd.read_csv("C:/Users/antfiera/Documents/GitHub/app-store_reviews_crawler/in-ios.csv")
 
 lista=pd.DataFrame()
-
+i=""
 for i in lista_site["app_name"]:
    aaa=IOS_APP(i)
    lista=lista.append(aaa, ignore_index=True)
 
 lista.index.name='id'
 t=str(datetime.now())
+'''
 t1=t.replace(".","_")
 t2=t1.replace("-","-")
 t3=t2.replace(":","_")
 t4=t3.replace(" ","-")
 t5=t4[0:19]
+'''
 print(lista)
-lista.to_excel("C:/Users/antfiera/Desktop/app-store/"+t5+"-ios-apps.xlsx", index = True) 
+lista.to_excel("C:/Users/antfiera/Documents/GitHub/app-store_reviews_crawler/ios_app_stats.xlsx", index = True) 

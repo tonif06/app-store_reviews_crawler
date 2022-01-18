@@ -49,4 +49,4 @@ t3=t2.replace(":","_")
 t4=t3.replace(" ","-")
 t5=t4[0:19]
 '''
-all_data.to_excel("C:/Users/antfiera/Documents/GitHub/app-store_reviews_crawler/ios-rev.xlsx")
+all_data.to_excel("C:/Users/antfiera/Documents/GitHub/app-store_reviews_crawler/ios_app_reviews.xlsx")
